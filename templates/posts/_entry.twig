@@ -1,0 +1,36 @@
+{% extends 'posts/_postlayout' %}
+
+{% block post %}
+    <!-- Page Header -->
+    {% set image = entry.titleImage.one %}
+    <header class="masthead" style="background-image: url({{ image.getURL() }} )" alt="{{ image.title }}">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>{{ entry.title }}</h1>
+              <h2 class="subheading">{{ entry.subtitle }}</h2>
+              <span class="meta">Posted by
+                <a href="#">{{ entry.author }}</a>
+                on {{ entry.postDate | date("m/d,Y") }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            {{ entry.article }}
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+{% endblock %}
